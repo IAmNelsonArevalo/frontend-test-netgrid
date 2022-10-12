@@ -1,14 +1,13 @@
 import { createStore } from 'vuex'
+import VuexPersistence from 'vuex-persist';
+import useStoreModules from './modules';
+
+/** Modules */
+const {modules} = useStoreModules();
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+  modules: modules,
+  plugins: [new VuexPersistence({
+    storage: window.localStorage
+  }).plugin]
 })
