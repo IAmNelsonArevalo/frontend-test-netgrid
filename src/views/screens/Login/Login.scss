@@ -1,0 +1,24 @@
+.login-container {
+    @apply w-screen h-screen flex justify-center items-center;
+    background-image: url('https://wallpaperaccess.com/full/20993.jpg');
+
+    .v-card {
+        @apply p-[20px] w-[50%];
+
+        @media (max-width: 768px) {
+            @apply w-full;
+        }
+
+        .card-title {
+            @apply text-center font-bold uppercase text-[25px];
+        }
+
+        .card-description {
+            @apply text-center text-[#000];
+        }
+
+        .button-login {
+            @apply text-white;
+        }
+    }
+}

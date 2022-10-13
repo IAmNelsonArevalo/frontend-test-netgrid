@@ -1,0 +1,34 @@
+.login-container {
+    @apply w-screen h-screen flex justify-center items-center;
+}
+
+.v-overlay__content {
+    @apply justify-center;
+    flex-direction: row !important;
+
+    .modal-pokemon {
+        @apply w-[50%];
+
+        @media (max-width: 768px) {
+            @apply w-full;
+        }
+
+        .v-card-text {
+            @apply uppercase;
+        }
+
+        ul {
+            @apply px-[51px] list-[circle];
+        }
+    }
+
+    .image {
+        .v-img {
+            @apply flex justify-center max-w-[200px];
+        }
+
+        img {
+            @apply max-w-[200px];   
+        }
+    }
+}

@@ -1,21 +1,36 @@
 <template>
   <v-app>
     <v-main>
-      <router-view/>
+      <suspense>
+        <General v-if="!isAuthRoute">
+          <router-view />
+        </General>
+        <router-view v-else/>
+      </suspense>
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Options, Vue } from "vue-class-component";
+import useViews from "@/views";
 
-export default defineComponent({
-  name: 'App',
+const { useLayouts } = useViews();
+const { General } = useLayouts();
 
-  data () {
-    return {
-      //
-    }
-  },
+@Options({
+  components: {
+    General
+  }
 })
+
+export default class App extends Vue {
+  mounted(): void {
+    console.log(this.isAuthRoute);
+  }
+
+  get isAuthRoute(): boolean {
+    return this.$route.name === "Login" || this.$route.name === "Register";
+  }
+}
 </script>
