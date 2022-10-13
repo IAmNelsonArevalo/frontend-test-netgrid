@@ -73,6 +73,9 @@ export default class Home extends Vue {
 
     /** Mounted */
     mounted(): void {
+        if(this.$store.state.auth.session.token === "") {
+            this.$router.push("/login")
+        }
         this.$store.dispatch("home/getAllPokemons");
         setTimeout(() => {
             this.$store.dispatch("home/formatTable", { page: this.page, pokemons: this.$store.state.home.pokemons });
