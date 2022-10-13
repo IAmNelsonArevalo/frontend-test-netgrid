@@ -28,7 +28,7 @@
         </v-table>
         <div class="flex justify-center w-full">
             <v-pagination v-model="page" class="w-[50%]" :length="totalPage"
-                @update:modelValue="changePage($event, pageSizeNum)"></v-pagination>
+                @update:modelValue="changePage($event)"></v-pagination>
         </div>
         <v-dialog v-model="open" class="flex justify-center items-center">
             <v-card class="modal-pokemon">
@@ -45,7 +45,7 @@
                             <v-card-text><b>BASE EXPERIENCE:</b> {{pokemon.base_experience}}</v-card-text>
                             <v-card-text><b>ABILITIES:</b> </v-card-text>
                             <ul>
-                                <li v-for="hability in pokemon?.abilities" :key="index">{{hability?.ability.name}}</li>
+                                <li v-for="hability in pokemon?.abilities" :key="hability.ability.name">{{hability?.ability.name}}</li>
                             </ul>
                         </v-col>
                     </v-col>
@@ -77,7 +77,6 @@ export default class Home extends Vue {
         setTimeout(() => {
             this.$store.dispatch("home/formatTable", { page: this.page, pokemons: this.$store.state.home.pokemons });
         }, 3000)
-        console.log(this.pokemon.types)
     }
 
     /** Methods */

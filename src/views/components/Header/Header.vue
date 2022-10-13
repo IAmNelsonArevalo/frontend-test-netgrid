@@ -40,7 +40,7 @@
                         </div>
                     </v-list-item>
                     <v-divider></v-divider>
-                    <v-list-item class="cursor-pointer">Perfil</v-list-item>
+                    <v-list-item class="cursor-pointer" @click="$router.push('/favorites')">Mis favoritos</v-list-item>
                     <v-divider></v-divider>
                     <v-list-item class="cursor-pointer" @click="closeSession">Cerrar Sesion</v-list-item>
                 </v-list>
