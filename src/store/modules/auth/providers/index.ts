@@ -3,12 +3,12 @@ import axios, {AxiosResponse} from "axios";
 import { LoginForm, RegisterForm } from "@/models/interfaces/auth.interfaces";
 
 const useAuthProviders = () => {
-    let url = "http://127.0.0.1:8000/api"
+    let url = "https://backend-test-netgrid.herokuapp.com/api"
     const loginProvider = (user: LoginForm): Promise<AxiosResponse<any>> => {
         return new Promise((resolve, reject) => {
             try {
                 const res = axios({
-                    url: `${url}/auth/login`,
+                    url: `/auth/login`,
                     method: "POST",
                     data: user
                 })
@@ -24,7 +24,7 @@ const useAuthProviders = () => {
         return new Promise((resolve, reject) => {
             try {
                 const res = axios({
-                    url: `${url}/auth/register`,
+                    url: `/auth/register`,
                     method: "POST",
                     data: user
                 });

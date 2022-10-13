@@ -9,6 +9,10 @@ import { loadFonts } from './plugins/webfontloader'
 /** Styles */
 import "./assets/scss/styles.scss";
 import 'sweetalert2/dist/sweetalert2.min.css';
+import axios from 'axios'
+
+// @ts-ignore
+axios.defaults.baseURL = "https://backend-test-netgrid.herokuapp.com/api"
 
 loadFonts()
 
